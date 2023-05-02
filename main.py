@@ -47,6 +47,17 @@ bulletY_change = 10
 bullet_state = "ready"
 
 
+# Score
+
+score_value = 0
+font = pygame.font.Font('freesansbold.ttf', 32)
+
+textX = 10
+testY = 10
+
+# Game Over
+over_font = pygame.font.Font('freesansbold.ttf', 64)
+
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -117,7 +128,7 @@ while running:
                 enemyY[j] = 2000
             game_over_text()
             break
-            
+
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
             enemyX_change[i] = 4
