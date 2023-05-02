@@ -67,6 +67,20 @@ for i in range(num_of_enemies):
     enemyX_change.append(4)
     enemyY_change.append(40)
 
+
+def fire_bullet(x, y):
+    global bullet_state
+    bullet_state = "fire"
+    screen.blit(bulletImg, (x + 16, y + 10))
+
+
+def isCollision(enemyX, enemyY, bulletX, bulletY):
+    distance = math.sqrt(math.pow(enemyX - bulletX, 2) + (math.pow(enemyY - bulletY, 2)))
+    if distance < 27:
+        return True
+    else:
+        return False
+
 # Game Loop
 running = True
 while running:
@@ -118,6 +132,6 @@ while running:
     if bullet_state is "fire":
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
-        
+
     pygame.display.update()
 
