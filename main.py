@@ -110,5 +110,14 @@ while running:
             game_over_text()
             break
 
+    # Bullet Movement
+    if bulletY <= 0:
+        bulletY = 480
+        bullet_state = "ready"
+
+    if bullet_state is "fire":
+        fire_bullet(bulletX, bulletY)
+        bulletY -= bulletY_change
+        
     pygame.display.update()
 
